@@ -3,4 +3,45 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="titles">
+        <item>Are social networking sites effective, or are they just a sophisticated means for stalking people?</item>
+        <item>Is torture justified when used for national security?</item>
+        <item>Should cell phones be banned in schools?</item>
+        <item>Is peer pressure harmful or beneficial to individuals?</item>
+        <item>Should violent video games be banned?</item>
+        <item>Should the death penalty be taken away completely?</item>
+        <item>Are beauty pageants a way to objectifying women?</item>
+        <item>Should cigarettes be banned from society?</item>
+        <item>Is it unethical to eat meat?</item>
+        <item>Should homework be banned?</item>
+        <item>Can people move in together before they are married?</item>
+        <item>Do celebrities make for bad role models?</item>
+        <item>Are credit cards are more harmful than debit cards?</item>
+        <item>Should the concept of zoos should be nullified?</item>
+        <item>Should fried foods come with a warning?</item>
+        <item>Should sex education be banned in middle schools?</item>
+        <item>All schools should make it a requirement to teach arts and music to their students?</item>
+        <item>Should juveniles be tried and treated as adults?</item>
+        <item>Is human cloning justified, and should it be allowed?</item>
+        <item>Has nuclear energy destroyed our society?</item>
+        <item>Should parents not purchase war or destruction type toys for their children?</item>
+        <item>Should animal dissections be banned in schools?</item>
+        <item>Should plastic bags be banned?</item>
+        <item>Are humans too dependent on computers?</item>
+        <item>Are security cameras an invasion of our privacy?</item>
+        <item>Should gay marriages be legalized?</item>
+        <item>Is co-education a good idea?</item>
+        <item>Does money motivates people more than any other factor in the workplace?</item>
+        <item>Is it ethical for companies to market their products to children?</item>
+        <item>Is age an important factor in relationships?</item>
+        <item>Should school attendance be made voluntary in high school?</item>
+        <item>Is the boarding school system beneficial to children?</item>
+        <item>Are curfews effective in terms of keeping teens out of trouble?</item>
+        <item>Should libraries have a list of books that are banned?</item>
+        <item>Will posting students’ grades on bulletin boards publicly motivate them to perform better or is it humiliating?</item>
+        <item>Do school uniforms help to improve the learning environment?</item>
+        <item>How far is competition necessary in regards to the learning process?</item>
+        <item>Can bullying in schools be stopped? How so?</item>
+        <item>Is it important for all schools to conduct mandatory drug testing on their students?</item>
+    </string-array>
 </resources>
