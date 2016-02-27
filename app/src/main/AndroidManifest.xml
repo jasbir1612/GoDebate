@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".startDebate" />
-        <activity android:name=".Choose"></activity>
+        <activity android:name=".Choose" />
+        <activity android:name=".Main2Activity"></activity>
     </application>
 
 </manifest>
