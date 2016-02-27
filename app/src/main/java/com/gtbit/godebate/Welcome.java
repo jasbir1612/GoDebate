@@ -78,7 +78,7 @@ public class Welcome extends FragmentActivity {
     {
         SharedPreferences preferences = getSharedPreferences("my_preferences", MODE_PRIVATE);
         preferences.edit().putBoolean("welcome_complete", true).apply();
-        Intent i = new Intent(this,MainActivity.class);
+        Intent i = new Intent(this,Choose.class);
         startActivity(i);
         finish();
 

@@ -27,5 +27,6 @@ public class MainActivity extends AppCompatActivity {
         topicsList = (ListView) findViewById(R.id.topics_list);
         adapter = new ArrayAdapter(this, R.layout.topics_row,R.id.topics, titles);
         topicsList.setAdapter(adapter);
+
     }
 }

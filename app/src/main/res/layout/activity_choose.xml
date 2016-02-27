@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3d404d"
+    tools:context="com.gtbit.godebate.Choose">
+
+
+
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Use existing topic to debate"
+        android:id="@+id/choose_topic"
+        android:layout_marginTop="101dp"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="create topic"
+        android:id="@+id/create_topic"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <com.gc.materialdesign.views.ButtonFlat
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chat "
+        android:id="@+id/chat"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp" />
+</RelativeLayout>
