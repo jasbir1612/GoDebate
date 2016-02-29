@@ -1,7 +1,11 @@
 package com.gtbit.godebate;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -56,6 +60,9 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
                     AlertDialog.Builder builder = new AlertDialog.Builder(this);
                     builder.setMessage("Enter the debate topic");
                     builder.setView(topicInput);
+
+                    final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
                     builder.setPositiveButton("Start Debate", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -69,6 +76,13 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
                         }
                     });
 
+                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            imm.hideSoftInputFromWindow(topicInput.getWindowToken(), 0);
+                        }
+                    });
+
                     final AlertDialog dialog = builder.show();
                     dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
 
@@ -79,7 +93,7 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
 
                         @Override
                         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                            if (charSequence.length() > 0 && charSequence.length() <= 22) {
+                            if (charSequence.length() > 0) {
                                 dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(true);
                             } else {
                                 dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
