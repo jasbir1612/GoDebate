@@ -20,16 +20,16 @@ import com.gc.materialdesign.views.ButtonFlat;
 
 public class Choose extends AppCompatActivity implements View.OnClickListener {
 
-    ButtonFlat chooseTopic,createTopic, chat;
+    Button chooseTopic,createTopic, chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose);
 
-        createTopic = (ButtonFlat) findViewById(R.id.create_topic);
-        chooseTopic = (ButtonFlat) findViewById(R.id.choose_topic);
-        chat = (ButtonFlat) findViewById(R.id.chat);
+        createTopic = (Button) findViewById(R.id.create_topic);
+        chooseTopic = (Button) findViewById(R.id.choose_topic);
+        chat = (Button) findViewById(R.id.chat);
 
         chooseTopic.setOnClickListener(this);
         chat.setOnClickListener(this);
@@ -56,55 +56,55 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
             }
             else {
                 if (id == R.id.create_topic) {
-                    final EditText topicInput = new EditText(this);
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setMessage("Enter the debate topic");
-                    builder.setView(topicInput);
-
-                    final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-
-                    builder.setPositiveButton("Start Debate", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                            String name = topicInput.getText().toString();
-                            Intent i = new Intent(Choose.this, Main2Activity.class);
-                            i.putExtra("Topic", name);
-                            startActivity(i);
-
-
-                        }
-                    });
-
-                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            imm.hideSoftInputFromWindow(topicInput.getWindowToken(), 0);
-                        }
-                    });
-
-                    final AlertDialog dialog = builder.show();
-                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-
-                    topicInput.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                        }
-
-                        @Override
-                        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                            if (charSequence.length() > 0) {
-                                dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(true);
-                            } else {
-                                dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-                            }
-                        }
-
-                        @Override
-                        public void afterTextChanged(Editable editable) {
-                        }
-                    });
-
+//                    final EditText topicInput = new EditText(this);
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//                    builder.setMessage("Enter the debate topic");
+//                    builder.setView(topicInput);
+//
+//                    final InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+//
+//                    builder.setPositiveButton("Start Debate", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialog, int which) {
+//
+//                            String name = topicInput.getText().toString();
+//                            Intent i = new Intent(Choose.this, Main2Activity.class);
+//                            i.putExtra("Topic", name);
+//                            startActivity(i);
+//
+//
+//                        }
+//                    });
+//
+//                    builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            imm.hideSoftInputFromWindow(topicInput.getWindowToken(), 0);
+//                        }
+//                    });
+//
+//                    final AlertDialog dialog = builder.show();
+//                    dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+//
+//                    topicInput.addTextChangedListener(new TextWatcher() {
+//                        @Override
+//                        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+//                        }
+//
+//                        @Override
+//                        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+//                            if (charSequence.length() > 0) {
+//                                dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+//                            } else {
+//                                dialog.getButton(android.app.AlertDialog.BUTTON_POSITIVE).setEnabled(false);
+//                            }
+//                        }
+//
+//                        @Override
+//                        public void afterTextChanged(Editable editable) {
+//                        }
+//                    });
+//
                 }
             }
         }

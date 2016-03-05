@@ -20,7 +20,19 @@
             </intent-filter>
         </activity>
         <activity android:name=".Choose" />
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".Main2Activity"/>
+        <activity
+            android:name=".HostActivity"
+            android:label="@string/title_activity_host"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
+        <activity
+            android:name=".ClientActivity"
+            android:label="@string/title_activity_client"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" >
+        </activity>
     </application>
 
 </manifest>

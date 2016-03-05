@@ -44,4 +44,12 @@
         <item>Can bullying in schools be stopped? How so?</item>
         <item>Is it important for all schools to conduct mandatory drug testing on their students?</item>
     </string-array>
+
+    <string name="content_desc">Image</string>
+    <string name="edit_name">Edit name</string>
+    <string name="host">Host</string>
+    <string name="join">Join</string>
+    <string name="title_activity_host">Host a ChatRoom</string>
+    <string name="title_activity_client">Join a ChatRoom</string>
+    <string name="action_reopen">Reopen ChatRoom</string>
 </resources>
