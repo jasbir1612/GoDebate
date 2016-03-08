@@ -52,7 +52,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         editor.apply();
 
         Intent i = new Intent(MainActivity.this, Main2Activity.class);
-//        i.putExtra("position", titles[position]);
         startActivity(i);
 
     }

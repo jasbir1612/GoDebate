@@ -43,8 +43,8 @@
 
         <Button
             android:id="@+id/send"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="3dp"
             android:background="@drawable/ic_action_send_now" />
     </LinearLayout>

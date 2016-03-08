@@ -19,7 +19,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -64,13 +63,11 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
 
-        TextView title = (TextView) findViewById(R.id.toolbar_title);
         SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-        String topic = sharedPreferences.getString("topic", "topic");
+        String topic = sharedPreferences.getString("topic", "top[oi");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
-        title.setText(topic);
 
         acceptableDevices.add(BluetoothClass.Device.COMPUTER_HANDHELD_PC_PDA);
         acceptableDevices.add(BluetoothClass.Device.COMPUTER_PALM_SIZE_PC_PDA);

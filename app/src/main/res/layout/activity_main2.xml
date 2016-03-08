@@ -3,24 +3,38 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpaper"
     tools:context="com.gtbit.godebate.Main2Activity">
 
     <include layout="@layout/toolbar"/>
 
+
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Host"
         android:id="@+id/host"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:padding="14dp"
+        android:background="@drawable/button_layout"
+        android:textColor="#ffffff"
         android:layout_above="@+id/join"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="141dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:text="Join"
         android:id="@+id/join"
+        android:textSize="20sp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:padding="14dp"
+        android:background="@drawable/button_layout"
+        android:textColor="#ffffff"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="150dp" />

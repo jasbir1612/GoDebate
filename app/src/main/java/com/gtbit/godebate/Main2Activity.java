@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -30,7 +34,17 @@ public class Main2Activity extends AppCompatActivity {
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
-        
+
+        Animation fadeIn = new AlphaAnimation(0,1);
+        fadeIn.setInterpolator(new AccelerateInterpolator());
+        fadeIn.setDuration(1500);
+        AnimationSet animation = new AnimationSet(false);
+        animation.addAnimation(fadeIn);
+        host.setAnimation(animation);
+        join.setAnimation(animation);
+        host.startAnimation(fadeIn);
+        join.startAnimation(fadeIn);
+
         host.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

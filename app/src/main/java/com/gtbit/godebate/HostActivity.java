@@ -21,6 +21,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class HostActivity extends AppCompatActivity {
 
     private ChatManager mChatManager;
     ImageView group;
+    public String str;
+    public static final String Default = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,27 +55,20 @@ public class HostActivity extends AppCompatActivity {
 
         TextView title = (TextView) findViewById(R.id.toolbar_title);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
-        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-        String topic = sharedPreferences.getString("topic", "loo");
-
-        SharedPreferences share = getSharedPreferences("ThisData", MODE_PRIVATE);
-        String topic_created = share.getString("name", "too");
 
         group = (ImageView) findViewById(R.id.group);
         group.setImageResource(R.drawable.ic_action_group);
 
-//        String str = Choose.topicInput.toString();
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+        String topic = sharedPreferences.getString("topic", Default);
+
+        SharedPreferences share = getSharedPreferences("ThisData", MODE_PRIVATE);
+        String topic_created = share.getString("name", Default);  //how to set this in toolbar
         title.setText(topic);
 
-
-
-//        if(str!= null) {
-//            toolbar.setTitle(topic_created);
+//        if(Choose.topicInput.length()>5) {
+//            title.setText(topic_created);
 //        }
-//        else{
-//            title.setText(topic);
-//        }
-
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
@@ -297,6 +293,7 @@ public class HostActivity extends AppCompatActivity {
                 System.err.println(e.toString());
             }
         }
+
 
     }
 

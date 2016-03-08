@@ -8,8 +8,8 @@
 
     <ImageView
 
-        android:layout_height="35dp"
-        android:layout_width="35dp"
+        android:layout_height="25dp"
+        android:layout_width="25dp"
         android:id="@+id/group"
         android:layout_gravity="end"
         android:layout_margin="10dp"
@@ -20,6 +20,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="top"
+        android:textColor="#ffffff"
         style="@android:style/TextAppearance.Holo.Widget.ActionBar.Title.Inverse"
         android:maxLines="5" />
+
+
+
+
     </android.support.v7.widget.Toolbar>
