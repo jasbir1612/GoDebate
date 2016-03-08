@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.gtbit.godebate.Main2Activity">
 
+    <include layout="@layout/toolbar"/>
 
     <Button
         android:layout_width="wrap_content"

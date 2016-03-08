@@ -2,11 +2,24 @@
 <android.support.v7.widget.Toolbar
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
+    android:background="#3d404d"
     android:id="@+id/toolbar"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorPrimary"
-    app:title="Topics"
-    app:titleTextColor="#ffffff"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android" >
 
-</android.support.v7.widget.Toolbar>
+    <ImageView
+
+        android:layout_height="35dp"
+        android:layout_width="35dp"
+        android:id="@+id/group"
+        android:layout_gravity="end"
+        android:layout_margin="10dp"
+        />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        style="@android:style/TextAppearance.Holo.Widget.ActionBar.Title.Inverse"
+        android:maxLines="5" />
+    </android.support.v7.widget.Toolbar>

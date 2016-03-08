@@ -1,7 +1,9 @@
 package com.gtbit.godebate;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -22,8 +24,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Topics");
+        toolbar.setTitleTextColor(Color.WHITE);
+        toolbar.setNavigationIcon(R.drawable.back);
+        setSupportActionBar(toolbar);
+//        toolbar.setSaveFromParentEnabled(true);
 
         Resources resources = getResources();
         titles = resources.getStringArray(R.array.titles);
@@ -40,16 +46,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        main2Activity();
-        this.position=position;
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+        SharedPreferences.Editor editor =sharedPreferences.edit();
+        editor.putString("topic", titles[position]);
+        editor.apply();
+
+        Intent i = new Intent(MainActivity.this, Main2Activity.class);
+//        i.putExtra("position", titles[position]);
+        startActivity(i);
 
     }
 
     private void main2Activity() {
 
-        Intent i = new Intent(MainActivity.this, Main2Activity.class);
-        i.putExtra("position", titles[position]);
-        startActivity(i);
+
 
     }
 }

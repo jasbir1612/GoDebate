@@ -11,7 +11,12 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:parentActivityName=".Choose">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Choose" />
+        </activity>
         <activity android:name=".Welcome">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,19 +24,27 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Choose" />
-        <activity android:name=".Main2Activity"/>
+        <activity android:name=".Choose"
+            android:parentActivityName=".Choose"/>
+        <activity android:name=".Main2Activity"
+            android:parentActivityName=".Choose">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Choose" />
+        </activity>
         <activity
             android:name=".HostActivity"
             android:label="@string/title_activity_host"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".Main2Activity">
         </activity>
         <activity
             android:name=".ClientActivity"
             android:label="@string/title_activity_client"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" >
+            android:windowSoftInputMode="stateHidden"
+            android:parentActivityName=".Main2Activity">
         </activity>
     </application>
 

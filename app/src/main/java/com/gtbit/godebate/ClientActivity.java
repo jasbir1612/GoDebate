@@ -1,6 +1,5 @@
 package com.gtbit.godebate;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothClass;
@@ -15,11 +14,12 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toolbar;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,10 +27,11 @@ import java.util.ArrayList;
 /**
  * Created by Jasbir Singh on 3/1/2016.
  */
-public class ClientActivity extends Activity {
+public class ClientActivity extends AppCompatActivity {
 
 //    public static final int PICK_IMAGE = 1;
 
+    Toolbar toolbar;
     private ArrayList<Integer> acceptableDevices = new ArrayList<Integer>();
 
     private EditText mMessage;
@@ -63,11 +64,13 @@ public class ClientActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
 
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-        if (getActionBar() != null) {
-            getActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+        TextView title = (TextView) findViewById(R.id.toolbar_title);
+        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+        String topic = sharedPreferences.getString("topic", "topic");
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.back);
+        setSupportActionBar(toolbar);
+        title.setText(topic);
 
         acceptableDevices.add(BluetoothClass.Device.COMPUTER_HANDHELD_PC_PDA);
         acceptableDevices.add(BluetoothClass.Device.COMPUTER_PALM_SIZE_PC_PDA);

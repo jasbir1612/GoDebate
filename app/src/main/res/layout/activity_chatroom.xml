@@ -6,6 +6,8 @@
     android:gravity="bottom"
     android:orientation="vertical" >
 
+    <include layout="@layout/toolbar"/>
+
 
     <ListView
         android:id="@+id/message_feed"
