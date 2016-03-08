@@ -2,6 +2,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
+
     tools:context="com.gtbit.godebate.WelcFragment1">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:background="@drawable/button_layout"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chat And Debate"
+            android:layout_marginTop="50dp"
+            android:textSize="34sp"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:id="@+id/txt1"
+            android:layout_alignParentTop="true"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offline"
+            android:textSize="34sp"
+            android:layout_marginTop="20dp"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:layout_below="@+id/txt1" />
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/bluetooth"
+            android:layout_marginBottom="80dp"
+            android:layout_alignParentBottom="true"
+            />
+
+        </RelativeLayout>
 </FrameLayout>

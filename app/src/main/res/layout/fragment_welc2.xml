@@ -2,7 +2,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="40dp"
     tools:context="com.gtbit.godebate.WelcFragment2">
 
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:background="@drawable/button_layout"
+        android:id="@+id/textView"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="50dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30sp"
+            android:id="@+id/txt2"
+            android:textColor="@android:color/white"
+            android:text="Choose from "/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="30sp"
+            android:id="@+id/txt3"
+            android:layout_below="@+id/txt2"
+            android:textColor="@android:color/white"
+            android:text="Existing"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="30sp"
+            android:id="@+id/txt4"
+            android:layout_below="@+id/txt3"
+            android:textColor="@android:color/white"
+            android:text="Topics or"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="8dp"
+            android:textSize="30sp"
+            android:id="@+id/txt5"
+            android:layout_below="@+id/txt4"
+            android:textColor="@android:color/white"
+            android:text="CreateNew !"/>
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/page"
+            android:layout_marginBottom="80dp"
+            android:layout_alignParentBottom="true"
+            />
+
+    </RelativeLayout>
 </FrameLayout>
