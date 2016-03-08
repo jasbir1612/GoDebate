@@ -68,7 +68,7 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
 
         Animation fadeIn = new AlphaAnimation(0,1);
         fadeIn.setInterpolator(new AccelerateInterpolator());
-        fadeIn.setDuration(1500);
+        fadeIn.setDuration(1400);
         AnimationSet animation = new AnimationSet(false);
         animation.addAnimation(fadeIn);
         chooseTopic.setAnimation(animation);
