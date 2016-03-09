@@ -8,9 +8,12 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
@@ -37,6 +40,7 @@ public class HostActivity extends AppCompatActivity {
     Toolbar toolbar;
     private EditText mMessage;
 
+    boolean isTopic;
     private String mUsername;
     private String mChatRoomName;
     private BluetoothAdapter mBluetoothAdapter;
@@ -45,30 +49,30 @@ public class HostActivity extends AppCompatActivity {
 
     private ChatManager mChatManager;
     ImageView group;
-    public String str;
+    TextView title;
+    String topic;
+    String topicAgain;
     public static final String Default = null;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
 
-        TextView title = (TextView) findViewById(R.id.toolbar_title);
+        topicAgain = getIntent().getStringExtra("topic");
+
+        title = (TextView) findViewById(R.id.toolbar_title);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         group = (ImageView) findViewById(R.id.group);
         group.setImageResource(R.drawable.ic_action_group);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-        String topic = sharedPreferences.getString("topic", Default);
+        sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
 
-        SharedPreferences share = getSharedPreferences("ThisData", MODE_PRIVATE);
-        String topic_created = share.getString("name", Default);  //how to set this in toolbar
-        title.setText(topic);
 
-//        if(Choose.topicInput.length()>5) {
-//            title.setText(topic_created);
-//        }
+        title.setText(topicAgain);
+
         toolbar.setTitleTextColor(Color.WHITE);
         toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
@@ -80,6 +84,7 @@ public class HostActivity extends AppCompatActivity {
                     mAcceptThread.cancel();
                 }
                 initializeBluetooth();
+
             }
         });
 
@@ -105,49 +110,51 @@ public class HostActivity extends AppCompatActivity {
         // Retrieve username
         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         mUsername = sharedPref.getString("username", mBluetoothAdapter.getName());
+        initializeBluetooth();
 
-        // Set up ChatRoom naming input
+//         Set up ChatRoom naming input
         final EditText nameInput = new EditText(this);
         nameInput.setSingleLine();
         nameInput.setImeOptions(EditorInfo.IME_ACTION_DONE);
         imm.hideSoftInputFromWindow(nameInput.getWindowToken(), 0);
-        initializeBluetooth();
 
-        // Set up ChatRoom naming dialog
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("Enter your ChatRoom name");
-//        builder.setView(nameInput);
-//        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int which) {
-//                mChatRoomName = nameInput.getText().toString();
-//
-//                if (getActionBar() != null) {
-//                    getActionBar().setTitle(mChatRoomName);
-//                }
-//
-//
-//            }
-//        });
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                imm.hideSoftInputFromWindow(nameInput.getWindowToken(), 0);
-//                finish();
-//            }
-//        });
-//        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
-//            @Override
-//            public void onCancel(DialogInterface dialogInterface) {
-//                finish();
-//            }
-//        });
-//
-//        // Show the dialog and disable the submit button until the name is longer than 0 characters
-//        final AlertDialog dialog = builder.show();
-//        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(false);
-//        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-//
+
+//         Set up ChatRoom naming dialog
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Are You Ready?");
+        builder.setView(nameInput);
+        nameInput.setText("Yes");
+        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                mChatRoomName = nameInput.getText().toString();
+
+                if (getActionBar() != null) {
+                    getActionBar().setTitle(mChatRoomName);
+                }
+
+
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                imm.hideSoftInputFromWindow(nameInput.getWindowToken(), 0);
+                finish();
+            }
+        });
+        builder.setOnCancelListener(new DialogInterface.OnCancelListener() {
+            @Override
+            public void onCancel(DialogInterface dialogInterface) {
+                finish();
+            }
+        });
+
+        // Show the dialog and disable the submit button until the name is longer than 0 characters
+        final AlertDialog dialog = builder.show();
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setEnabled(true);
+        imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
+
 //        nameInput.addTextChangedListener(new TextWatcher() {
 //            @Override
 //            public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {}
@@ -202,7 +209,17 @@ public class HostActivity extends AppCompatActivity {
             mAcceptThread = new AcceptThread();
             mAcceptThread.start();
             Toast.makeText(this, "Searching for users...", Toast.LENGTH_SHORT).show();
-        }else if (requestCode == REQUEST_DISCOVERABLE) {
+//        } else if (resultCode == RESULT_OK) {
+////            Uri image = data.getData();
+////            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+////            Cursor cursor = getContentResolver().query(image, filePathColumn, null, null, null);
+//
+////            cursor.moveToFirst();
+////            int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+////            String picturePath = cursor.getString(columnIndex);
+////
+////            cursor.close();
+        } else if (requestCode == REQUEST_DISCOVERABLE) {
             Toast.makeText(this, "New users cannot join your chat room", Toast.LENGTH_SHORT).show();
         }
     }
@@ -293,8 +310,5 @@ public class HostActivity extends AppCompatActivity {
                 System.err.println(e.toString());
             }
         }
-
-
     }
-
 }

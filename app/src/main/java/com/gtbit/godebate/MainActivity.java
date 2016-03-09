@@ -46,12 +46,13 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-        SharedPreferences.Editor editor =sharedPreferences.edit();
-        editor.putString("topic", titles[position]);
-        editor.apply();
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+//        SharedPreferences.Editor editor =sharedPreferences.edit();
+//        editor.putString("topic", titles[position]);
+//        editor.apply();
 
         Intent i = new Intent(MainActivity.this, Main2Activity.class);
+        i.putExtra("topic", titles[position]);
         startActivity(i);
 
     }

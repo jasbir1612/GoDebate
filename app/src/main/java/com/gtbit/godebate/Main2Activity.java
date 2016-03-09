@@ -22,10 +22,13 @@ public class Main2Activity extends AppCompatActivity {
 
 
     public static final String UUID = "28286a80-137b-11e4-bbe8-0002a5d5c51b";
+    String topic;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+        topic = getIntent().getStringExtra("topic");
 
         host = (Button) findViewById(R.id.host);
         join = (Button) findViewById(R.id.join);
@@ -63,11 +66,13 @@ public class Main2Activity extends AppCompatActivity {
 
     private void joinRoom() {
         Intent i = new Intent(this, ClientActivity.class);
+        i.putExtra("topic", topic);
         startActivity(i);
     }
 
     private void hostRoom() {
         Intent i = new Intent(this, HostActivity.class);
+        i.putExtra("topic", topic);
         startActivity(i);
     }
 

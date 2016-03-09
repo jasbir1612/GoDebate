@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -63,8 +64,12 @@ public class ClientActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
-        String topic = sharedPreferences.getString("topic", "top[oi");
+        TextView title = (TextView) findViewById(R.id.toolbar_title);
+//        SharedPreferences sharedPreferences = getSharedPreferences("MyData", MODE_PRIVATE);
+//        String topic = sharedPreferences.getString("topic", "topic");
+        String topicAgain = getIntent().getStringExtra("topic");
+        title.setText(topicAgain);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
@@ -73,18 +78,11 @@ public class ClientActivity extends AppCompatActivity {
         acceptableDevices.add(BluetoothClass.Device.COMPUTER_PALM_SIZE_PC_PDA);
         acceptableDevices.add(BluetoothClass.Device.PHONE_SMART);
 
-//        Button mAttachButton = (Button) findViewById(R.id.attach);
         Button mSendButton = (Button) findViewById(R.id.send);
         mMessage = (EditText) findViewById(R.id.message);
         mChatManager = new ChatManager(this, false);
         mProgressDialog = new ProgressDialog(this);
 
-//        mAttachButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                uploadAttachment();
-//            }
-//        });
 
         mSendButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -56,7 +56,6 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
         });
 
         toolbar.setTitleTextColor(Color.WHITE);
-        toolbar.setNavigationIcon(R.drawable.back);
         setSupportActionBar(toolbar);
 
         createTopic = (Button) findViewById(R.id.create_topic);
@@ -108,11 +107,13 @@ public class Choose extends AppCompatActivity implements View.OnClickListener {
                     builder.setPositiveButton("Start Debate", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            SharedPreferences share = getSharedPreferences("ThisData", MODE_PRIVATE);
-                            SharedPreferences.Editor editor = share.edit();
-                            editor.putString("name", topicInput.getText().toString());
-                            editor.apply();
+//                            SharedPreferences share = getSharedPreferences("MyData", MODE_PRIVATE);
+//                            SharedPreferences.Editor editor = share.edit();
+//                            editor.putString("name", topicInput.getText().toString());
+//                            editor.apply();
+
                             Intent i = new Intent(Choose.this, Main2Activity.class);
+                            i.putExtra("topic", topicInput.getText().toString());
                             startActivity(i);
 
 
