@@ -8,13 +8,21 @@
 
     <include layout="@layout/toolbar"/>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pen_name"
+        android:padding="5dp"
+        android:textSize="14sp"
+        android:layout_below="@+id/toolbar"/>
+
 
     <ListView
         android:id="@+id/message_feed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="0dp"
-        android:layout_below="@+id/toolbar"
+        android:layout_below="@+id/pen_name"
         android:footerDividersEnabled="false" />
 
     <LinearLayout
@@ -38,7 +46,6 @@
             android:background="#3d404d"
             android:textCursorDrawable="@color/light_gray"
             android:textColor="@android:color/white"
-            android:singleLine="true"
             android:imeOptions="actionDone" />
 
         <Button

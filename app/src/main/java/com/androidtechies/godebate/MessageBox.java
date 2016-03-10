@@ -1,6 +1,4 @@
-package com.gtbit.godebate;
-
-import android.graphics.Bitmap;
+package com.androidtechies.godebate;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

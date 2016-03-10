@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -6,8 +6,6 @@ import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
 import android.preference.PreferenceManager;

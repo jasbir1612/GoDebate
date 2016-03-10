@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;

@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 
 import android.os.Bundle;
@@ -11,11 +11,11 @@ import android.view.ViewGroup;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class WelcFragment3 extends Fragment {
+public class WelcFragment2 extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_welc3, container, false);
+        return inflater.inflate(R.layout.fragment_welc2, container, false);
     }
 
 }

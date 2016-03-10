@@ -28,8 +28,7 @@
             android:layout_height="wrap_content"
             android:textSize="16sp"
             android:text="message"
-            android:textColor="@color/dark_gray"
-            android:maxLines="3" />
+            android:textColor="@color/dark_gray" />
 
         <ImageView
             android:id="@+id/image"

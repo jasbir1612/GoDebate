@@ -1,6 +1,5 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
-import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
 import android.graphics.Color;

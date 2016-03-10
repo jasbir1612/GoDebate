@@ -1,7 +1,6 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;

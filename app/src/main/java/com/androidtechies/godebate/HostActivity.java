@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.app.AlertDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -8,23 +8,17 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
@@ -49,7 +43,7 @@ public class HostActivity extends AppCompatActivity {
 
     private ChatManager mChatManager;
     ImageView group;
-    TextView title;
+    TextView title, penName;
     String topic;
     String topicAgain;
     public static final String Default = null;
@@ -63,6 +57,7 @@ public class HostActivity extends AppCompatActivity {
         topicAgain = getIntent().getStringExtra("topic");
 
         title = (TextView) findViewById(R.id.toolbar_title);
+        penName = (TextView) findViewById(R.id.pen_name);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
 
         group = (ImageView) findViewById(R.id.group);
@@ -123,8 +118,9 @@ public class HostActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage("Are You Ready?");
         builder.setView(nameInput);
-        nameInput.setText("Yes");
-        builder.setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+//        nameInput.setText("Yes");
+        nameInput.setHint("Enter you pen name");
+        builder.setPositiveButton("Start", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int which) {
                 mChatRoomName = nameInput.getText().toString();
@@ -132,6 +128,7 @@ public class HostActivity extends AppCompatActivity {
                 if (getActionBar() != null) {
                     getActionBar().setTitle(mChatRoomName);
                 }
+                penName.setText(nameInput.getText().toString());
 
 
             }

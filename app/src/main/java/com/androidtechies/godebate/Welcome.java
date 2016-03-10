@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
@@ -62,7 +61,10 @@ public class Welcome extends FragmentActivity {
                 if(i==0||i==1||i==2) {
                     btnnext.setVisibility(View.VISIBLE);
                 }
-
+                if(i==2)
+                {
+                    btnnext.setText("Next");
+                }
             }
 
         });

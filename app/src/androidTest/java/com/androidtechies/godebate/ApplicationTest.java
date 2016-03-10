@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

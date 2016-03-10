@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper"
-    tools:context="com.gtbit.godebate.Main2Activity">
+    tools:context="com.androidtechies.godebate.Main2Activity">
 
     <include layout="@layout/toolbar"/>
 

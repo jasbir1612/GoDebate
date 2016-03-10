@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.gtbit.godebate">
+    package="com.androidtechies.godebate">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.androidtechies.godebate.MainActivity"
             android:screenOrientation="portrait"
-            android:parentActivityName=".Choose">
+            android:parentActivityName="com.androidtechies.godebate.Choose">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Choose" />
+                android:value="com.androidtechies.godebate.Choose" />
         </activity>
-        <activity android:name=".Welcome"
+        <activity android:name="com.androidtechies.godebate.Welcome"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,32 +28,32 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Choose"
-            android:parentActivityName=".Choose"
+            android:name="com.androidtechies.godebate.Choose"
+            android:parentActivityName="com.androidtechies.godebate.Choose"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".Main2Activity"
-            android:parentActivityName=".Choose"
+            android:name="com.androidtechies.godebate.Main2Activity"
+            android:parentActivityName="com.androidtechies.godebate.Choose"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Choose" />
+                android:value="com.androidtechies.godebate.Choose" />
         </activity>
         <activity
-            android:name=".HostActivity"
+            android:name="com.androidtechies.godebate.HostActivity"
             android:label="@string/title_activity_host"
-            android:parentActivityName=".Main2Activity"
+            android:parentActivityName="com.androidtechies.godebate.Main2Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
             />
         <activity
-            android:name=".ClientActivity"
+            android:name="com.androidtechies.godebate.ClientActivity"
             android:label="@string/title_activity_client"
-            android:parentActivityName=".Main2Activity"
+            android:parentActivityName="com.androidtechies.godebate.Main2Activity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden"
           />
-        <activity android:name=".About"
+        <activity android:name="com.androidtechies.godebate.About"
             android:screenOrientation="portrait"/>
     </application>
 

@@ -1,4 +1,4 @@
-package com.gtbit.godebate;
+package com.androidtechies.godebate;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
